@@ -22,6 +22,7 @@ setuptools.setup(
         "aws-cdk.aws-ec2",
         "aws-cdk.aws-s3",
         "aws-cdk.core",
+        "black",
     ],
 
     python_requires=">=3.6",

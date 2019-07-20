@@ -6,6 +6,6 @@ from cdk_example.vpc_stack import VpcStack
 
 
 app = core.App()
-VpcStack(app, "CdkVpcStack")
+VpcStack(app, "CdkExampleVpcStack", env=dict(region='eu-west-1'))
 
 app.synth()

@@ -1,6 +1,8 @@
 .DEFAULT_GOAL := help
 
+CURRENT_PWD:=$(shell pwd)
 VENV_DIR:=.venv
+
 PATH:=${PWD}/${VENV_DIR}/bin:$(shell printenv PATH)
 PYTHONEXE=$(shell which python3)
 export PATH
@@ -32,3 +34,13 @@ help:
 		 /:/   { sub(/:.*/, "", $$0); \
 		 printf "\033[34m%-30s\033[0m\033[1m%s\033[0m %s\n\n", $$0, doc_h, doc; skip=1 }' \
 		${MAKEFILE_LIST}
+
+cdk_ls:
+	docker run \
+		-v $(HOME)/.aws:/root/.aws \
+		-v $(CURRENT_PWD):$(CURRENT_PWD) \
+		-it cdk-example \
+		/bin/bash -c "cd $(CURRENT_PWD) && . .venv/bin/activate && cdk ls"
+
+fmt:
+	${PWD}/${VENV_DIR}/bin/black cdk_example
