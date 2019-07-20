@@ -1,0 +1,17 @@
+# IDEs
+/.idea
+*.swp
+*.retry
+.history
+
+# OS
+.DS_Store
+
+# Python
+*.pyc
+.venv*
+*.egg-info/
+
+# CDK
+
+cdk.out*
