@@ -43,4 +43,4 @@ cdk_ls:
 		/bin/bash -c "cd $(CURRENT_PWD) && . .venv/bin/activate && cdk ls"
 
 fmt:
-	${PWD}/${VENV_DIR}/bin/black cdk_example
+	${PWD}/${VENV_DIR}/bin/black .
