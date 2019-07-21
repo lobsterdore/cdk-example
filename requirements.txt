@@ -1,1 +1,4 @@
--e .
+aws-cdk.aws-ec2
+aws-cdk.aws-ecs
+aws-cdk.core
+black
