@@ -3,9 +3,15 @@ from aws_cdk import aws_ec2, aws_ecs, core
 
 class EcsFargateService(core.Stack):
     def __init__(
-        self, scope: core.Construct, id: str, default_tags, vpc, cluster, **kwargs
+        self, scope: core.Construct, id: str, env_config: dict, **kwargs
     ) -> None:
         super().__init__(scope, id, **kwargs)
+
+        vpc = aws_ec2.Vpc.from_lookup(self, 'Vpc', tags={"tag:environment": "dev", "tag:project": "cdk-example"})
+
+
+        cluster = aws_ecs.Cluster.from_cluster_attributes(self, 'Cluster',
+            cluster_name='cdk-example', vpc=vpc)
 
         task_definition = aws_ecs.FargateTaskDefinition(
             self, "TaskDefinition", cpu=256, memory_limit_mib=512
@@ -36,6 +42,6 @@ class EcsFargateService(core.Stack):
             vpc_subnets={"subnetType": aws_ec2.SubnetType.PRIVATE},
         )
 
-        for resource in [task_definition, security_group, service]:
-            for tag in default_tags:
-                resource.node.apply_aspect(tag)
+        # for resource in [task_definition, security_group, service]:
+        #     for tag in default_tags:
+        #         resource.node.apply_aspect(tag)

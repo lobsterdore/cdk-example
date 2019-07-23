@@ -2,7 +2,7 @@
 
 from aws_cdk import core
 
-from stacks import EcsClusterStack
+from stacks import EcsFargateService
 
 env_config = {
     "default_tags": {"environment": "dev", "project": "cdk-example"},
@@ -11,9 +11,9 @@ env_config = {
 
 app = core.App()
 
-cluster_stack = EcsClusterStack(
+EcsFargateService(
     app,
-    "CdkExampleClusterStack",
+    "CdkExampleFargateStack",
     env=dict(region=env_config["region"], account="920609328416"),
     env_config=env_config,
     tags=env_config["default_tags"]

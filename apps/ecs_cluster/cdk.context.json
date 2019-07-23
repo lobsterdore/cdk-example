@@ -1,0 +1,23 @@
+{
+  "vpc-provider:account=920609328416:filter.tag:environment=dev:filter.tag:project=cdk-example:region=eu-west-1": {
+    "vpcId": "vpc-05c35b5eefd84ba30",
+    "availabilityZones": [
+      "eu-west-1a",
+      "eu-west-1b"
+    ],
+    "privateSubnetIds": [
+      "subnet-0706fbf1f6860da85",
+      "subnet-0d76bbbf1c54cee64"
+    ],
+    "privateSubnetNames": [
+      "Private"
+    ],
+    "publicSubnetIds": [
+      "subnet-07612bc6f0a76f6e7",
+      "subnet-09ac3db89c90c407a"
+    ],
+    "publicSubnetNames": [
+      "Public"
+    ]
+  }
+}
